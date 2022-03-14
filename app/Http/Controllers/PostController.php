@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -80,6 +81,12 @@ class PostController extends Controller
     {
         return view('post', [
             'post' => $post
+        ]);
+    }
+
+    public function showUserPosts(Request $request) {
+        return view('posts', [
+            'posts' => Post::query()->where('user_id', $request->id)->get(),
         ]);
     }
 

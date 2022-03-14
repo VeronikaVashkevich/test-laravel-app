@@ -38,3 +38,4 @@ Route::get('/logout', [SecurityController::class, 'logout'])->name('logout');
 Route::resource('posts', PostController::class);
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::get('/post/{id}', [PostController::class, 'show']);
+Route::get('/user-posts/{id}', [PostController::class, 'showUserPosts'])->name('showUserPosts');
